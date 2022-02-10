@@ -1,33 +1,47 @@
+import MainCard from './MainCard'
+import SubCard from './SubCard'
+
 function App() {
   return (
     <div className='App container'>
       <div className='grid'>
-        <div className='info-card'>
-          <div className='info-card-top'>
-            <img
-              src='images/image-jeremy.png'
-              alt='Jeremy'
-              className='avatar'
-            />
-            <div className='avatar-description'>
-              <small className='pre-title'>Report for</small>
-              <h3 className='avatar-name'>Jeremy Robson</h3>
-            </div>
-          </div>
-          <div className='info-card-bottom'>
-            <ul>
-              <li>
-                <button className='btn-link'>Daily</button>
-              </li>
-              <li>
-                <button className='btn-link active'>Weekly</button>
-              </li>
-              <li>
-                <button className='btn-link'>Monthly</button>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <MainCard />
+        <SubCard
+          title='Work'
+          icon='images/icon-work.svg'
+          currentTime='7hrs'
+          lastTime='32hrs'
+        />
+        <SubCard
+          title='Play'
+          icon='images/icon-play.svg'
+          currentTime='7hrs'
+          lastTime='32hrs'
+        />
+        <SubCard
+          title='Study'
+          icon='images/icon-study.svg'
+          currentTime='7hrs'
+          lastTime='32hrs'
+        />
+        <SubCard
+          title='Exercise'
+          icon='images/icon-exercise.svg'
+          currentTime='7hrs'
+          lastTime='32hrs'
+        />
+        <SubCard
+          title='Social'
+          icon='images/icon-social.svg'
+          currentTime='7hrs'
+          lastTime='32hrs'
+        />
+        <SubCard
+          title='Self Care'
+          icon='images/icon-self-care.svg'
+          currentTime='7hrs'
+          lastTime='32hrs'
+        />
       </div>
     </div>
   )
