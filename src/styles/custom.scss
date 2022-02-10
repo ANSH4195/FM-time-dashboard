@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+@import 'utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 18px;
+  background-color: $very-dark-blue;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  @include flex-center;
+  min-height: 100vh;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.info-card {
+  @include card-base;
+  grid-row: span 2;
+  background-color: $dark-blue;
+}
+
+.info-card-top {
+  @include card-base;
+  background-color: $primary-color;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 70px;
+  border: 2px #fff solid;
+  border-radius: 100%;
+  background-color: #fff;
+}
+
+.avatar-description {
+  margin: 30px 0;
+
+  .pre-title {
+    font-size: small;
+    color: #ffffff75;
+  }
+
+  .avatar-name {
+    font-weight: lighter;
+    font-size: xx-large;
+  }
+}
+
+.info-card-bottom {
+  padding: 20px;
+}
+
+.btn-link {
+  @include btn-base;
+  text-align: start;
+  padding: 5px 10px;
+  margin: 2.5px 0;
+  color: #ffffff75;
+
+  &.active {
+    color: #fff;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}
