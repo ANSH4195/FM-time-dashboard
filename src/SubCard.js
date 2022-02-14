@@ -9,7 +9,9 @@ const SubCard = ({ title, icon, currentTime, lastTime }) => {
       <div className='bottom'>
         <div className='title'>
           <p>{title}</p>
-          <img src='images/icon-ellipsis.svg' alt='' />
+          <button className='btn-ellipsis'>
+            <img src='images/icon-ellipsis.svg' alt='' />
+          </button>
         </div>
         <div className='body'>
           <h3 className='current-hours'>{currentTime}</h3>

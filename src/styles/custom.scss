@@ -89,39 +89,15 @@ ul {
   }
 }
 
-.bg-work {
-  background-color: $work-color;
-}
-
-.bg-play {
-  background-color: $play-color;
-}
-
-.bg-study {
-  background-color: $study-color;
-}
-
-.bg-exercise {
-  background-color: $exercise-color;
-}
-
-.bg-social {
-  background-color: $social-color;
-}
-
-.bg-self-care {
-  background-color: $self-care-color;
-}
-
 .subcard {
   border-radius: $border-radius + 3;
   z-index: 1;
 
-  & .top {
+  .top {
     height: 20%;
     position: relative;
     overflow: hidden;
-    & img {
+    img {
       position: absolute;
       bottom: 0;
       right: 15px;
@@ -130,7 +106,7 @@ ul {
     }
   }
 
-  & .bottom {
+  .bottom {
     background-color: $dark-blue;
     border-radius: $border-radius;
     height: 80%;
@@ -138,11 +114,30 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    $p: &;
 
-    & .title {
+    .title {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .btn-ellipsis {
+        @include btn-base;
+        text-align: end;
+        align-self: center;
+        width: auto;
+        @include flex-center;
+        padding: 5px 0 5px 5px;
+
+        &:hover {
+          filter: brightness(200%);
+        }
+      }
+    }
+
+    &:hover {
+      filter: brightness(120%);
+      cursor: pointer;
     }
   }
 }

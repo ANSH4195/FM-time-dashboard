@@ -12,8 +12,28 @@ $dark-blue: hsl(235, 46%, 20%);
 $desaturated-blue: hsl(235, 45%, 61%);
 $pale-blue: hsl(236, 100%, 87%);
 
+$colors: (
+  'primary': $primary-color,
+  'work': $work-color,
+  'play': $play-color,
+  'study': $study-color,
+  'exercise': $exercise-color,
+  'social': $social-color,
+  'self-care': $self-care-color,
+  'very-dark-blue': $very-dark-blue,
+  'dark-blue': $dark-blue,
+  'desaturated-blue': $desaturated-blue,
+  'pale-blue': $pale-blue,
+);
+
 $border-radius: 15px;
 $padding: 30px;
+
+@each $colorName, $color in $colors {
+  .bg-#{$colorName} {
+    background-color: $color;
+  }
+}
 
 @mixin d-flex {
   display: flex;
