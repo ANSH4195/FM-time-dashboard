@@ -17,6 +17,7 @@ function App() {
             icon={`images/icon-${card.title
               .toLowerCase()
               .replaceAll(' ', '-')}.svg`}
+            timeType={timeType}
             currentTime={card.timeframes[timeType].current + 'hrs'}
             lastTime={card.timeframes[timeType].previous + 'hrs'}
           />

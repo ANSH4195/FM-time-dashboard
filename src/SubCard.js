@@ -1,6 +1,10 @@
 import React from 'react'
 
-const SubCard = ({ title, icon, currentTime, lastTime }) => {
+const SubCard = ({ title, icon, timeType, currentTime, lastTime }) => {
+  const toCamelCase = (text) => {
+    return text[0].toUpperCase() + text.substring(1, text.length - 2)
+  }
+
   return (
     <div className={`subcard bg-${title.toLowerCase().replaceAll(' ', '-')}`}>
       <div className='top'>
@@ -15,7 +19,10 @@ const SubCard = ({ title, icon, currentTime, lastTime }) => {
         </div>
         <div className='body'>
           <h3 className='current-hours'>{currentTime}</h3>
-          <small className='previous-hours'>Last Week - {lastTime}</small>
+          <small className='previous-hours'>
+            Last {timeType === 'Daily' ? 'Yesterday' : toCamelCase(timeType)} -{' '}
+            {lastTime}
+          </small>
         </div>
       </div>
     </div>
