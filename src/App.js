@@ -1,47 +1,26 @@
+import React, { useState } from 'react'
 import MainCard from './MainCard'
 import SubCard from './SubCard'
+import cardData from './data.json'
 
 function App() {
+  const [timeType, setTimeType] = useState('weekly')
+
   return (
     <div className='App container'>
       <div className='grid'>
-        <MainCard />
-        <SubCard
-          title='Work'
-          icon='images/icon-work.svg'
-          currentTime='7hrs'
-          lastTime='32hrs'
-        />
-        <SubCard
-          title='Play'
-          icon='images/icon-play.svg'
-          currentTime='7hrs'
-          lastTime='32hrs'
-        />
-        <SubCard
-          title='Study'
-          icon='images/icon-study.svg'
-          currentTime='7hrs'
-          lastTime='32hrs'
-        />
-        <SubCard
-          title='Exercise'
-          icon='images/icon-exercise.svg'
-          currentTime='7hrs'
-          lastTime='32hrs'
-        />
-        <SubCard
-          title='Social'
-          icon='images/icon-social.svg'
-          currentTime='7hrs'
-          lastTime='32hrs'
-        />
-        <SubCard
-          title='Self Care'
-          icon='images/icon-self-care.svg'
-          currentTime='7hrs'
-          lastTime='32hrs'
-        />
+        <MainCard timeType={timeType} setTimeType={setTimeType} />
+        {cardData.map((card) => (
+          <SubCard
+            key={card.title}
+            title={card.title}
+            icon={`images/icon-${card.title
+              .toLowerCase()
+              .replaceAll(' ', '-')}.svg`}
+            currentTime={card.timeframes[timeType].current + 'hrs'}
+            lastTime={card.timeframes[timeType].previous + 'hrs'}
+          />
+        ))}
       </div>
     </div>
   )

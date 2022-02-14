@@ -1,6 +1,12 @@
 import React from 'react'
 
-const MainCard = () => {
+const MainCard = ({ timeType, setTimeType }) => {
+  const timeTypes = ['Daily', 'Weekly', 'Monthly']
+
+  const handleTimeTypeChange = (timeType) => {
+    setTimeType((prev) => timeType.toLowerCase())
+  }
+
   return (
     <div className='info-card'>
       <div className='info-card-top'>
@@ -12,15 +18,18 @@ const MainCard = () => {
       </div>
       <div className='info-card-bottom'>
         <ul>
-          <li>
-            <button className='btn-link'>Daily</button>
-          </li>
-          <li>
-            <button className='btn-link active'>Weekly</button>
-          </li>
-          <li>
-            <button className='btn-link'>Monthly</button>
-          </li>
+          {timeTypes.map((type) => (
+            <li key={type}>
+              <button
+                className={`btn-link ${
+                  timeType === type.toLowerCase() ? 'active' : ''
+                }`}
+                onClick={(e) => handleTimeTypeChange(e.target.outerText)}
+              >
+                {type}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
